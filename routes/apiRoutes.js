@@ -2,29 +2,31 @@ const fs = require('fs');
 const {v4:uuidv4} = require('uuid');
 
 module.exports = function (app){
-    app.get('./notes.html', (req, res,) => {
+    app.get('./public/notes', (req, res,) => {
         console.log('getting notes...');
     
-        let data = JSON.parse(fs.readFileSync('./db/dbjsaon', 'utf-8'));
+        let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
     
         console.log ('returning notes' + JSON.stringify(data));
     
-        response.json(data);
+        res.json(data);
     });
     
-    app.post('./public/notes.html', (req, res) => {
-        const newNote = request.body;
+    app.post('./public/notes', (req, res) => {
+        const newNote = req.body;
     
         console.log('Post request' + JSON.stringify(newNote));
         newNote.id = uuidv4();
         
-        let data = JSON.parse(fs.readFileSync('/db.json', 'utf-8'));
+        let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
+
+        data.push(newNote)
+
+        fs.writeFileSync('./db/db.json', JSON.stringify(data));
     
-        fs.writeFileSync('/db.jason', JSON.stringify(data));
+        console.log('NEW NOTE ADDED');
     
-        console.log('New note added');
-    
-        response.json(data);
+        res.json(data);
     });
 }
 
