@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
-var apiRoutes = require('./routes/htmlRoutes');
-var htmlRoutes = require('./routes/apiRoutes');
+var apiRoutes = require('./routes/apiRoutes');
+var htmlRoutes = require('./routes/htmlRoutes');
 
 //Express for data parcing 
 app.use(express.json());

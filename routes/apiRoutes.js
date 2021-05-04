@@ -3,7 +3,7 @@ const fs = require('fs');
 const {v4:uuidv4} = require('uuid');
 const router = require('express').Router();
 
-router.get('/api/notes', (req, res) => {
+router.get('/notes', (req, res) => {
     console.log('getting notes...');
     
     let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
@@ -13,7 +13,7 @@ router.get('/api/notes', (req, res) => {
     res.json(data);
 });
     
-router.post('/api/notes', (req, res) => {
+router.post('/notes', (req, res) => {
     const newNote = req.body;
     
     console.log('Post request' + JSON.stringify(newNote));
@@ -31,14 +31,14 @@ router.post('/api/notes', (req, res) => {
     res.json(data);
 });
 
-router.delete('/api/notes/:id', (req, res) => {
+router.delete('/notes/:id', (req, res) => {
     let noteId = req.params.id.toString();
 
     console.log(`You\'re DELETING ${noteId}`);
 
     let data = JSON.parse(fs.readFileSync('./db/bd.json', 'utf-8'));
 
-    const newData = data.filter(note => note.id.toString() !== noteId);
+    const newData = data.filter(note => note.id.toString() !==noteId );
 
     fs.writeFileSync('./db/db.json', JSON.stringify(newData));
 
