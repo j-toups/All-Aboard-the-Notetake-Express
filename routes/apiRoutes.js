@@ -1,4 +1,3 @@
-const { response } = require('express');
 const fs = require('fs');
 const {v4:uuidv4} = require('uuid');
 const router = require('express').Router();
@@ -8,7 +7,7 @@ router.get('/notes', (req, res) => {
     
     let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
     
-    console.log ('returning notes' + JSON.stringify(data));
+    console.log ('returning notes...' + JSON.stringify(data));
     
     res.json(data);
 });
@@ -31,20 +30,23 @@ router.post('/notes', (req, res) => {
     res.json(data);
 });
 
-router.delete('/notes/:id', (req, res) => {
-    let noteId = req.params.id.toString();
+// router.delete('notes/:id', (req, res) => {
 
-    console.log(`You\'re DELETING ${noteId}`);
+//     console.log('TESTING');
+    
+//     let noteId = req.params.id.toString();
 
-    let data = JSON.parse(fs.readFileSync('./db/bd.json', 'utf-8'));
+//     console.log(`You\'re DELETING ${noteId}`);
 
-    const newData = data.filter(note => note.id.toString() !==noteId );
+//     let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
 
-    fs.writeFileSync('./db/db.json', JSON.stringify(newData));
+//     const newData = data.filter(note => note.id.toString() !==noteId );
 
-    console.log(`${noteId} has been deleted`);
+//     fs.writeFileSync('./db/db.json', JSON.stringify(newData));
 
-    res.json(newData);
-});
+//     console.log(`${noteId} has been deleted`);
 
-module.exports = router
+//     res.json(newData);
+// });
+
+module.exports = router;
