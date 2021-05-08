@@ -13,9 +13,9 @@ https://youtu.be/oCVb0i6J4t4
 
 ## Preview 
 
-(assets\Notetaker_Preview.JPG)
+![Blank Note](assets\Notetaker_Preview.JPG)
 
-(assets\Notetaker_Preview_2.JPG)
+![New Note](assets\Notetaker_Preview_2.JPG)
 
 
 ## Installation
