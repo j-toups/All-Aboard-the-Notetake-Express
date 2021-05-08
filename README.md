@@ -2,7 +2,7 @@
 
 ## Description
 
-This app allows you to take notes! It uses node.js, express.js, and uuid to create  notes, add notes, save them, delete the, and view them.
+This app allows you to take notes! It uses node.js, express.js, and uuid to create  notes, add notes, save them, delete them, and view them.
 
 ## Contents
 * [Installation](#Installation)
