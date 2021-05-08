@@ -4,8 +4,19 @@
 
 This app allows you to take notes! It uses node.js, express.js, and uuid to create a notes, add notes, save them, and view them
 
+## Deploy Link
+
+https://hw11notetakerr.herokuapp.com/notes
+
 ## Demo 
 https://youtu.be/oCVb0i6J4t4 
+
+## Preview 
+
+[Blank Note](assets\Notetaker_Preview.JPG)
+
+[New Note](assets\Notetaker_Preview_2.JPG)
+
 
 ## Installation
 
