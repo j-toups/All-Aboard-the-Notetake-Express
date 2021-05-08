@@ -30,23 +30,21 @@ router.post('/notes', (req, res) => {
     res.json(data);
 });
 
-// router.delete('notes/:id', (req, res) => {
-
-//     console.log('TESTING');
+router.delete('/notes/:id', (req, res) => {
     
-//     let noteId = req.params.id.toString();
+    let noteId = req.params.id;
 
-//     console.log(`You\'re DELETING ${noteId}`);
+    console.log(`You\'re DELETING ${noteId}`);
 
-//     let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
+    let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
 
-//     const newData = data.filter(note => note.id.toString() !==noteId );
+    const newData = data.filter(note => note.id.toString() !==noteId );
 
-//     fs.writeFileSync('./db/db.json', JSON.stringify(newData));
+    fs.writeFileSync('./db/db.json', JSON.stringify(newData));
 
-//     console.log(`${noteId} has been deleted`);
+    console.log(`${noteId} has been deleted`);
 
-//     res.json(newData);
-// });
+    res.json(newData);
+});
 
 module.exports = router;
